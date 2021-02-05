@@ -1,0 +1,107 @@
+{"español":[{
+    "titulos":["Educación","Experiencia","Proyectos","Habilidades","Idiomas","Referencias"],
+    "menu":[
+        {"link":"#sobre","nombre":"Sobre Mi"},
+        {"link":"#educacion","nombre":"Educación"},
+        {"link":"#habilidades","nombre":"Habilidades"},
+        {"link":"#experiencia","nombre":"Experiencia Profesional"},
+        {"link":"#idiomas","nombre":"Idiomas"},
+        {"link":"#proyectos","nombre":"Proyectos Desarrollados"},
+        {"link":"#referencias","nombre":"Referencias"},
+        {"link":"#contacto","nombre":"Formulario"}
+    ],
+    "nombre":["David Esteva Díaz"],
+    "introduccion":["He cursado dos ciclos formativos relacionados con informática. No tengo mucha experiencia laboral en el ambito de la informática pero si en otros hámbitos"],
+    "sobre":[ 
+        {"Direccion":"18320 Granada España","nacimiento":"17/09/99","Correo":"estevadiazdavid@gmail.com","telefono":"666775300"},
+        {"redes":[
+            {"nombre":"instagram","icono":"fab fa-instagram","link":"https://www.instagram.com/esteva179/?hl=es"},
+            {"nombre":"Github","icono":"fab fa-github","link":"https://github.com/davidestevadiaz"},
+            {"nombre":"Twitter","icono":"fab fa-twitter","link":"https://twitter.com/home"}
+            
+        ]}
+        
+    ],
+    "educacion":[
+        {"Titulo":"ESO","nombre":"Educacion Secundaria Obligatoria","fecha":"2015","lugar":"La purísima"},
+        {"Titulo":"BACH","nombre":"Bachillerato","fecha":"2019","lugar":"IES Jimenez de Quesada"},
+        {"Titulo":"DAW","nombre":"Desarrollo de Aplicaciones Web","fecha":"2021","lugar":"IES Francisco Ayala"}
+        ],
+    "experiencia":[
+        {"target":"#collapseOne","id":"collapseOne","mostrar":"collapse show","labelledby":"headingOne","Nombre":"Camarero","fecha":"2016 - ...","lugar":"Cafetería Siglo XII","descripción":"Es la cafetería de mis padres, y sigo ayudando todo lo posible, y he aprendido cosas como: ","conocimientos":[{"nombre":"Comunicarme mejor con la gente"},{"nombre": "Mejorar mi memoria"}]},
+        {"target":"#collapseTwo","id":"collapseTwo","mostrar":"collapse","labelledby":"headingTwo","Nombre":"Jornalero","fecha":"2017 - ...","descripción":"Voy a trabajar cuando tengo tiempo y no tengo otras obligaciones"}
+    ],
+    
+    "proyectos":[  
+        {"target":"#proyecto2","id":"proyecto1","Nombre":"Ping Pong","icono1":"fas fa-pager","link1":"https://ainaravc4.github.io/Ping-Pong/","icono2":"fab fa-github","link2":"https://github.com/Ainaravc4/Ping-Pong","img1":"./images/juego2.png","img2":"./images/proyecto2.png"}
+        ],
+    "habilidades":[
+        {"nombre":"Word","nivel":"Medio-Alto"},
+        {"nombre":"HTML5","nivel":"Alto"},
+        {"nombre":"CSS3","nivel":"Medio"},
+        {"nombre":"JavaScript","nivel":"Suficiente"}
+    ],
+    "idiomas":[
+        {"nombre":"Español","nivel":"Alto"},
+        {"nombre":"Inglés","nivel":"Medio"},
+        {"nombre":"Francés","nivel":"Suficiente"}
+
+    ],
+    "referencias":[
+        {"Nombre":"Juan José Esteva: ","texto":"Muy buen trabajador, disfruta con lo que hace y se nota.","img":"./images/persona1.jpg"},
+        {"Nombre":"Araceli Díaz: ","texto":"Muy respetuoso y constante.","img":"./images/persona2.jpg"}
+    ]
+}],
+
+
+
+
+
+
+
+"ingles":[{
+    "titulos":["Education","Experience","Projects","Skills","Lenguages","References"],
+    "menu":[
+        {"link":"#sobre","nombre":"About Me"},
+        {"link":"#educacion","nombre":"Education"},
+        {"link":"#habilidades","nombre":"Skills"},
+        {"link":"#experiencia","nombre":"Professional Experience"},
+        {"link":"#idiomas","nombre":"Languages"},
+        {"link":"#proyectos","nombre":"Projects Developed"},
+        {"link":"#referencias","nombre":"References"},
+        {"link":"#contacto","nombre":"Form"}],
+       
+    "introduccion":["I have completed two training cycles related to computing. I do not have a lot of work experience in the field of computer science but in other areas"],
+    "sobre": [{"descripcion":"I have completed two training cycles related to computing. I do not have a lot of work experience in the field of computer science but in other areas"}],
+
+    "educacion":[
+        {"Titulo":"CSE","nombre":"Compulsory Secondary Education","fecha":"2015","lugar":"La purísima"},
+        {"Titulo":"GED","nombre":"General Education Development","fecha":"2019","lugar":"IES Jimenez de Quesada"},
+        {"Titulo":"WAD","nombre":"Web Application Development","fecha":"2021","lugar":"IES Francisco Ayala"}
+    ],
+
+    "experiencia":[
+        {"target":"#collapseOne","id":"collapseOne","mostrar":"collapse show","labelledby":"headingOne","Nombre":"Barman","fecha":"2016 - ...","lugar":"Cafetería siglo XII","descripción":"It's my parents' cafeteria, and I keep helping out as much as possible, and I've learned things like:" ,"conocimientos":[{"nombre":"Communicate better with people."},{"nombre": "Improve my memory."}]},
+        {"target":"#collapseTwo","id":"collapseTwo","mostrar":"collapse","labelledby":"headingTwo","Nombre":"Laborer","fecha":"2017 - ...","descripción":"I go to work when I have time and I have no other obligations"}],
+
+    "proyectos":[
+    {"target":"#proyecto2","id":"proyecto1","Nombre":"Ping Pong","icono1":"fas fa-pager","link1":"https://ainaravc4.github.io/Ping-Pong/","icono2":"fab fa-github","link2":"https://github.com/Ainaravc4/Ping-Pong","img1":"./images/juego2.png","img2":"./images/proyecto2.png"}
+        ],
+    "habilidades":[
+        {"nombre":"Word","nivel":"Medium-High"},
+        {"nombre":"HTML5","nivel":"High"},
+        {"nombre":"CSS3","nivel":"Medium"},
+        {"nombre":"JavaScript","nivel":"Enough"}
+        ],
+    "idiomas":[
+        {"nombre":"Spanish","nivel":"High"},
+        {"nombre":"English","nivel":"Medium"},
+        {"nombre":"French","nivel":"Enough"}
+
+    ],
+    "referencias":[
+        {"Nombre":"Juan José Esteva: ","texto":"Very good worker, he enjoys what he does and it shows.","img":"./images/persona1.jpg"},
+        {"Nombre":"Araceli Díaz: ","texto":"Very respectful and consistent.","img":"./images/persona2.jpg"}
+    ]
+}]
+}

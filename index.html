@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+ 
+  
+  <head>
+    <title>Curriculum</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/647367d752.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    
+</head>
+<body data-spy="scroll" data-target="#sideNav" data-offset="0">
+  <div id="app">
+    
+
+     <!--barra navegación-->
+     <nav id="sideNav" class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+          <img src="./images/carnet.jpg" class="d-inline-block align-top rounded-circle" alt="logo de bootstrap">
+        </a>
+      
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <!--ESPAÑOL-->
+          <ul class="nav nav-pills flex-column " >
+            <transition-group name="fade" tag="li">
+            <li v-if="mostrarEs"  class="nav-item" v-for="(seccion,index) of navMenuEs" v-bind:key="seccion+index" >
+              <a class="nav-link" v-bind:href="seccion.link" >{{seccion.nombre}}</a>
+            </li>
+          </transition-group>
+          <transition-group name="fade" tag="li">
+            <li v-if="!mostrarEs"  class="nav-item" v-for="(seccion,index) of navMenuEn" v-bind:key="seccion+index" >
+              <a class="nav-link" v-bind:href="seccion.link" >{{seccion.nombre}}</a>
+            </li>
+          </transition-group>
+            <button type="button" class="btn btn-primary btn-lg" v-on:click="cambiarIdioma" ><i class="fas fa-flag-usa"></i></button>
+          </ul>
+          
+        </div>
+  
+      </nav>
+
+    
+    <section class="container">
+     
+      <!--sobre mi-->
+      <section class="sobre-mi" id="sobre">
+        <transition name="fade">
+          <h1 v-if="show" class="titulos">{{nombre}} </h1>
+        </transition>
+        <div class="datos">
+          <div class="row">
+            <div class="col-6 col-lg-3  offset-lg-3">
+              <transition-group name="fade" tag="p">
+                <p v-for="dato of sobreMi" v-bind:key="dato">{{dato}}</p>
+              </transition-group>
+              <div class="redes">
+                <transition-group name="fade" tag="p">
+                  <button type="button" class="btn btn-primary btn-lg" v-for="(red,index) of redesSociales" v-bind:key="red+index" data-toggle="tooltip" data-placement="top">
+                    <a v-bind:href="red.link"><i v-bind:class="red.icono"></i></a>
+                  </button>
+                </transition-group>
+              </div>
+            </div>
+            <div class="col-6 col-lg-3 ">
+              <p v-if="español">{{introduccionEs}}</p>
+              <p v-else>{{introduccionEn}}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr>
+
+      <!--Educacion-->
+      <h2 class="titulos" v-if="español">{{educEs}}</h2>
+      <h2 class="titulos" v-else>{{educEn}}</h2>
+      <section class="educacion" id="educacion">
+        
+        <table class="table table-striped table-dark" v-if="español" >
+          <!--ESPAÑOL-->
+          <tbody >
+            <tr  v-for="(estudio,index) of estudiosEs" v-bind:key="estudio+index"  >
+              <td>
+                <h5> {{estudio.Titulo}} </h5>
+                <p>{{estudio.nombre}}</p>
+              </td>
+              <td>{{estudio.lugar}}</td>
+              <td>{{estudio.fecha}}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!--INGLES-->
+        <table class="table table-striped table-dark" v-else>
+          <tbody >
+            <tr  v-for="estudio of estudiosEn">
+              <td>
+                <h5> {{estudio.Titulo}} </h5>
+                <p>{{estudio.nombre}}</p>
+              </td>
+              <td>{{estudio.lugar}}</td>
+              <td>{{estudio.fecha}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      
+
+      <!--Habilidades-->
+      <h2 class="titulos" v-if="español">{{habiEs}}</h2>
+      <h2 class="titulos" v-else>{{habiEn}}</h2>
+      <section class="habilidades" id="habilidades">  
+        <table class="table table-striped table-dark">
+            <tr v-for="destreza of destrezas">
+              <td>
+                <p>{{destreza.nombre}}</p>
+              </td>
+              <td>
+                <p>{{destreza.nivel}}</p>
+            </td>
+            </tr>
+        </table>
+      </section>
+
+      <hr>
+
+      <!--Experiencia-->
+      <h2 class="titulos" v-if="español">{{expeEs}}</h2>
+      <h2 class="titulos" v-else>{{expeEn}}</h2>
+      <section class="experiencia" id="experiencia"> 
+        <div class="accordion" id="accordion" v-if="español">
+          <!--ESPAÑOL-->
+          <div class="card " v-for="trabajo of trabajosEs">
+            <div class="card-header" v-bind:id="trabajo.labelledby">
+                <h2 class="mb-0">
+                    <button type="button" class="btn btn-link collapsed acordeon" data-toggle="collapse" v-bind:data-target="trabajo.target" >
+                      <div class="info">
+                        <h5>{{trabajo.Nombre}}</h5>
+                        <p>{{trabajo.lugar}}</p>
+                      </div>
+                      <p>{{trabajo.fecha}}</p>
+                    </button>
+                </h2>
+            </div>
+            <div v-bind:id="trabajo.id" v-bind:class=" trabajo.mostrar" v-bind:aria-labelledby="trabajo.labelledby" data-parent="#accordion">
+                <div class="card-body">
+                    <p>{{trabajo.descripción}}</p>
+                    <ul >
+                      <li v-for="cono of trabajo.conocimientos">{{cono.nombre}}</li>
+                    </ul>
+                </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion" id="accordion" v-else>
+          <!--INGLES-->
+          <div class="card " v-for="trabajo of trabajosEn">
+            <div class="card-header" v-bind:id="trabajo.labelledby">
+                <h2 class="mb-0">
+                    <button type="button" class="btn btn-link collapsed acordeon" data-toggle="collapse" v-bind:data-target="trabajo.target" >
+                      <div class="info">
+                        <h5>{{trabajo.Nombre}}</h5>
+                        <p>{{trabajo.lugar}}</p>
+                      </div>
+                      <p>{{trabajo.fecha}}</p>
+                    </button>
+                </h2>
+            </div>
+            <div v-bind:id="trabajo.id" v-bind:class=" trabajo.mostrar" v-bind:aria-labelledby="trabajo.labelledby" data-parent="#accordion">
+                <div class="card-body">
+                    <p>{{trabajo.descripción}}</p>
+                    <ul >
+                      <li v-for="cono of trabajo.conocimientos">{{cono.nombre}}</li>
+                    </ul>
+                </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <hr>
+
+      <!--Idiomas-->
+      <h2 class="titulos" v-if="español">{{idioEs}}</h2>
+      <h2 class="titulos" v-else>{{idioEn}}</h2>
+      <section class="idiomas" id="idiomas">
+        <ul class="list-group idio" v-if="español">
+          <!--ESPAÑOL-->
+          <li class="list-group-item" v-for="idi of idiomaEs">
+            <div class="row">
+              <div class="col-6">
+                <p>{{idi.nombre}}</p>
+              </div>
+              <div class="col-6">
+                <p>{{idi.nivel}}</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+        <ul class="list-group idio" v-else>
+        <!--INGLES-->
+
+          <li class="list-group-item" v-for="idi of idiomaEn">
+            <div class="row">
+              <div class="col-6">
+                <p>{{idi.nombre}}</p>
+              </div>
+              <div class="col-6">
+                <div class="col-6">
+                  <p>{{idi.nivel}}</p>
+                </div>
+            </div>
+          </li>
+        </ul>
+      </section> 
+      <hr>
+
+            <!--proyectos-->
+            <h2 class="titulos" v-if="español">{{proyEs}}</h2>
+            <h2 class="titulos" v-else>{{proyEn}}</h2>
+            <section class="proyectos  mt-5 pt-5" id="proyectos"   v-if="español">
+              <!--ESPAÑOL-->
+              
+              <div class="card-deck" v-for="proyecto of proyectosDesarrolladosEs">
+                
+                <!--proyecto 1-->
+                <div class="card" data-toggle="modal" v-bind:data-target="proyecto.target">
+                  <img v-bind:src="proyecto.img1" class="card-img-top ">
+                  <div class="card-body">
+                    <h5 class="card-title">{{proyecto.Nombre}}</h5>
+                  </div>
+                  <div class="card-footer">
+                    <small class="text-muted d-flex justify-content-center">
+                      <a class="btn btn-primary" role="button" href="https://github.com/davidestevadiaz/Proyecto_jquery">Link</a>
+                    </small>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="proyectos  mt-5 pt-5" id="proyectos" v-else>
+              <!--INGLES-->
+      
+              <div class="card-deck" v-for="proyecto of proyectosDesarrolladosEn" >
+                
+                <!--proyecto 1-->
+                <div class="card" data-toggle="modal" v-bind:data-target="proyecto.target">
+                  <img v-bind:src="proyecto.img1" class="card-img-top ">
+                  <div class="card-body">
+                    <h5 class="card-title">{{proyecto.Nombre}}</h5>
+                  </div>
+                  <div class="card-footer">
+                    <small class="text-muted d-flex justify-content-center">
+                      <a class="btn btn-primary" role="button" href="https://github.com/davidestevadiaz/Proyecto_jquery">Link</a>
+                    </small>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+      <hr>
+
+      <!--Referencias-->
+      <h2 class="titulos" v-if="español">{{refeEs}}</h2>
+      <h2 class="titulos" v-else>{{refeEn}}</h2>
+      <section class="referencias" id="referencias">
+        <ul class="list-unstyled referen" v-if="español">
+          <!--ESPAÑOL-->
+          
+          <li class="media" v-for="opinion of opinionesEs">
+            <img class="mr-3 opiniones" v-bind:src="opinion.img" >
+            <div class="media-body">
+              <h5 class="mt-0 mb-1"> {{opinion.Nombre}} </h5>
+              {{opinion.texto}}
+            </div>
+          </li>
+        </ul>
+
+        <ul class="list-unstyled referen" v-else>
+          <!--INGLES-->
+
+          <li class="media" v-for="opinion of opinionesEn">
+            <img class="mr-3 opiniones" v-bind:src="opinion.img" >
+            <div class="media-body">
+              <h5 class="mt-0 mb-1"> {{opinion.Nombre}} </h5>
+              {{opinion.texto}}
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <hr>
+      <!--Formulario -->
+      <section class="contacto" id="contacto">
+        <div class="row ">
+          <form class="col-10 offset-1 col-md-8 offset-md-2 col-xl-6 offset-xl-3 ">
+            <div class="form-group">
+              <legend class="p-3 text-center u-flowText text-dark">
+                <p v-if="español">Pregúnteme</p>
+                <p v-else>Ask Me</p>
+              </legend>
+            </div>
+            <div class="form-group">
+              <label for="name" v-if="español">Nombre</label>
+              <label for="name" v-else>Name</label>
+              <input id="name" name="name" type="text" placeholder="Escribe su nombre" class="form-control" required v-if="español">
+              <input id="name" name="name" type="text" placeholder="Enter your name" class="form-control" required v-else>
+            </div>
+            <div class="form-group">
+              <label for="email" >Email</label>
+              <input id="email" name="email" type="email" placeholder="mail@mail.com" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+              <label for="subject"v-if="español" >Asunto</label>
+              <label for="subject"v-else >Subject</label>
+              <input id="subject" name="subject" type="text" placeholder="Asunto" class="form-control" required v-if="español">
+              <input id="subject" name="subject" type="text" placeholder="Subject" class="form-control" required v-else>
+            </div>
+            <div class="form-group text-center">
+              <input type="submit" class="btn btn-lg btn-primary" v-if="español">
+              <input type="submit" class="btn btn-lg btn-primary" value="Send" v-else>
+            </div>
+          </form>
+        </div>
+      </section>
+      <hr>
+
+    </section>
+  </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="index.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
+  </body>
+</html>
